@@ -305,11 +305,6 @@ Citizen.CreateThread(function()
 			SendNUIMessage(playerStatus)
 		end
 
-	TriggerEvent('esx:getSharedObject', function(obj)
-  		ESX = obj
-  		ESX.PlayerData = ESX.GetPlayerData()
-  	end)
-
 
 	if ESX.PlayerData.job then
   	   local job

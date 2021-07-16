@@ -1,9 +1,13 @@
 ESX = nil
 
-CreateThread(function()
-	while ESX == nil do TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end) Wait(0) end
-	while ESX.GetPlayerData().job == nil do Wait(100) end
-	ESX.PlayerData = ESX.GetPlayerData()
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent("esx:GetSharedObject", function(obj) ESX = obj end)
+		Citizen.Wait(100)
+	end
+
+	Citizen.Wait(5000)
+	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterNetEvent('esx:playerLoaded')
